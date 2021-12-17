@@ -5,6 +5,9 @@ function levels (buttonOutput, buttonClass, textButton){
     levels.className = 'button', buttonClass;
     levels.innerHTML = textButton;
     buttonOutput.append(levels);
+    levels.addEventListener('click', function(){
+        buildGrid();
+    })
 }
 
 // Creo una funzione per creare un box e la colorazione del box al click
@@ -17,21 +20,16 @@ function createNewBox(output){
     })
 }
 
-function totalBoxes(output, boxNumber) {
-    output.innerHTML = "";
-    for (i = 1; i <= boxNumber; i++) {
+function buildGrid() {
+    outputHtml.innerHTML = '';
+    for (i = 1; i <= max; i++) {
         createNewBox(output);
     }
+}
 
-const outputHtml = document.getElementById('output')
-
-// let levelOne = levels(outputHtml, 'button-1', 'Level 1')
-
-// levelOne.addEventListener('click', function () {
-//     totalBoxes(100);
-// )}
+const outputHtml = document.getElementById('output');
 
 
-levels(outputHtml, 'button-1', 'Level 1')
-levels(outputHtml, 'button-2', 'Level 2')
-levels(outputHtml, 'button-3', 'Level 3')
+levels(outputHtml, 'button-1', 'Level 1');
+levels(outputHtml, 'button-2', 'Level 2');
+levels(outputHtml, 'button-3', 'Level 3');
