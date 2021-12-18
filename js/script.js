@@ -1,14 +1,9 @@
-// Creo una funzione per stampare il numero all'interno di ogni box che andrò a creare
-function boxNumber(newSquare, num){
-    newSquare.innerHTML = num;
-};
-
 // Creo una funzione per creare un box e la colorazione del box al click
 function createNewBox (output, num) {
     let newSquare = document.createElement('div');
     newSquare.className ='box';
+    newSquare.innerHTML = num;
     output.append(newSquare);
-    boxNumber(newSquare, num);
     newSquare.addEventListener('click', function(){
     this.classList.toggle('blue');   
     })
@@ -18,8 +13,8 @@ function createNewBox (output, num) {
 function buildGrid(output, maxNum, width){
     output.innerHTML = '';
     output.className = width;
-    for (let i = 0; i < maxNum; i++) {
-        createNewBox(output, i+1); 
+    for (let i = 1; i <= maxNum; i++) {
+        createNewBox(output, i); 
     }
 }
 
